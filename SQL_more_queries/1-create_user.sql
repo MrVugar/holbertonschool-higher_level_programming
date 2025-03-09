@@ -1,8 +1,13 @@
--- Check if user already exists, and create user if not
+-- İstifadəçini yarat, əgər mövcud deyilsə
 CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
 
--- Grant all privileges on all databases and tables
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
+-- Tələb olunan icazələri ver
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, 
+       FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, 
+       LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, 
+       SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, 
+       CREATE TABLESPACE, CREATE ROLE, DROP ROLE
+ON *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
 
--- Flush privileges to ensure that the changes take effect
+-- Dəyişiklikləri tətbiq et
 FLUSH PRIVILEGES;
